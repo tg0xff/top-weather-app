@@ -12,9 +12,18 @@ function printWeatherInfo(response) {
   console.log(`Temperature: ${response.current.temp_c}℃`);
   console.log(`Feels like: ${response.current.feelslike_c}℃`);
   console.log(`UV index: ${response.current.uv}`);
+  const days = response.forecast.forecastday;
+  console.log("Days:")
+  for (const day of days) {
+    console.log(`  Day: ${day.date}`);
+    console.log(`    Weather: ${day.day.condition.text}`);
+    console.log(`    Max: ${day.day.maxtemp_c}℃`);
+    console.log(`    Min: ${day.day.mintemp_c}℃`);
+    console.log(`    Chance of rain: ${day.day.daily_chance_of_rain}%`);
+  }
 }
 
-getWeatherData("London").then((response) => {
+getWeatherData("New York").then((response) => {
   console.log(response);
   printWeatherInfo(response);
 });
