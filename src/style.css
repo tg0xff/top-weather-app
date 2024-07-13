@@ -11,10 +11,6 @@ body {
   background-color: #ccc;
 }
 
-.hidden {
-  display: none;
-}
-
 div.search {
   display: grid;
   place-items: center;
@@ -42,4 +38,8 @@ input.search {
 .weather-window {
   display: grid;
   min-height: calc(99vh - 1.2rem - 89px);
+}
+
+.hidden {
+  display: none;
 }
