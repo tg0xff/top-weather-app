@@ -1,0 +1,8 @@
+.no-data {
+  display: grid;
+  place-items: center;
+}
+
+.hidden {
+  display: none;
+}
