@@ -32,6 +32,7 @@ input.search {
 
 .no-data {
   place-items: center;
+  font-size: 3rem;
 }
 
 .no-data,
