@@ -4,4 +4,17 @@ async function getWeatherData(location) {
   return response.json();
 }
 
-getWeatherData("London").then((response) => console.log(response));
+function printWeatherInfo(response) {
+  console.log(
+    `Location: ${response.location.name}, ${response.location.country}`,
+  );
+  console.log(response.current.condition.text);
+  console.log(`Temperature: ${response.current.temp_c}℃`);
+  console.log(`Feels like: ${response.current.feelslike_c}℃`);
+  console.log(`UV index: ${response.current.uv}`);
+}
+
+getWeatherData("London").then((response) => {
+  console.log(response);
+  printWeatherInfo(response);
+});
