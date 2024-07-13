@@ -1,7 +1,9 @@
 import "./style.css";
 
 async function getWeatherData(location) {
-  const apiUrl = encodeURI(`https://api.weatherapi.com/v1/forecast.json?key=17e5b927abb948d193754551240907&q=${location}&days=3&lang=en`);
+  const apiUrl = encodeURI(
+    `https://api.weatherapi.com/v1/forecast.json?key=17e5b927abb948d193754551240907&q=${location}&days=3&lang=en`,
+  );
   const response = await fetch(apiUrl, { mode: "cors" });
   return response.json();
 }
@@ -22,7 +24,7 @@ function printWeatherInfo(response) {
     console.log(`    Temperature: ${hour.temp_c}℃`);
   }
   const days = response.forecast.forecastday;
-  console.log("Days:")
+  console.log("Days:");
   for (const day of days) {
     console.log(`  Day: ${day.date}`);
     console.log(`    Weather: ${day.day.condition.text}`);
