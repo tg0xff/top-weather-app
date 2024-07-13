@@ -1,5 +1,5 @@
 async function getWeatherData(location) {
-  const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=17e5b927abb948d193754551240907&q=${location}&days=3`;
+  const apiUrl = encodeURI(`https://api.weatherapi.com/v1/forecast.json?key=17e5b927abb948d193754551240907&q=${location}&days=3&lang=en`);
   const response = await fetch(apiUrl, { mode: "cors" });
   return response.json();
 }
