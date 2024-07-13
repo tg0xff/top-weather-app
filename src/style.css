@@ -10,11 +10,6 @@ body {
   background-color: #ccc;
 }
 
-.no-data {
-  display: grid;
-  place-items: center;
-}
-
 .hidden {
   display: none;
 }
@@ -36,4 +31,14 @@ input.search {
   color: #000;
   background-color: #fff;
   width: 380px;
+}
+
+.no-data {
+  place-items: center;
+}
+
+.no-data,
+.weather-window {
+  display: grid;
+  min-height: calc(99vh - 1.2rem - 89px);
 }
