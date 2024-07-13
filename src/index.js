@@ -12,6 +12,13 @@ function printWeatherInfo(response) {
   console.log(`Temperature: ${response.current.temp_c}℃`);
   console.log(`Feels like: ${response.current.feelslike_c}℃`);
   console.log(`UV index: ${response.current.uv}`);
+  const hours = response.forecast.forecastday[0].hour;
+  console.log("Hours:");
+  for (const hour of hours) {
+    console.log(`  Hour: ${hour.time.slice(-5)}`);
+    console.log(`    Weather: ${hour.condition.text}`);
+    console.log(`    Temperature: ${hour.temp_c}℃`);
+  }
   const days = response.forecast.forecastday;
   console.log("Days:")
   for (const day of days) {
