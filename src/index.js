@@ -8,7 +8,7 @@ function printWeatherInfo(response) {
   console.log(
     `Location: ${response.location.name}, ${response.location.country}`,
   );
-  console.log(response.current.condition.text);
+  console.log(`Weather: ${response.current.condition.text}`);
   console.log(`Temperature: ${response.current.temp_c}℃`);
   console.log(`Feels like: ${response.current.feelslike_c}℃`);
   console.log(`UV index: ${response.current.uv}`);
