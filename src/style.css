@@ -103,11 +103,13 @@ input.search {
 .hour-forecast,
 .daily-forecast {
   display: flex;
+  gap: 6px;
 }
 
 .hour-forecast {
   grid-column: 2;
   grid-row: 1;
+  overflow-x: auto;
 }
 
 .daily-forecast {
