@@ -60,6 +60,39 @@ input.search {
 .current-weather {
   grid-column: 1;
   grid-row: 1 / -1;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: repeat(5, auto);
+}
+
+.location {
+  grid-row: 1;
+  grid-column: 1 / -1;
+}
+
+.date-time {
+  grid-row: 2;
+  grid-column: 1 / -1;
+}
+
+.weather-icon {
+  grid-row: 3 / -1;
+  grid-column: 1;
+}
+
+.temperature {
+  grid-row: 3;
+  grid-column: 2;
+}
+
+.fl-temperature {
+  grid-row: 4;
+  grid-column: 2;
+}
+
+.uv-index {
+  grid-row: 5;
+  grid-column: 2;
 }
 
 .hour-forecast,
