@@ -30,15 +30,22 @@ input.search {
   width: 380px;
 }
 
-.no-data {
+.data {
+  display: grid;
+  min-height: calc(99vh - 1.2rem - 89px);
   place-items: center;
-  font-size: 3rem;
 }
 
 .no-data,
 .weather-window {
+  width: 1600px;
+  height: 680px;
+}
+
+.no-data {
+  font-size: 3rem;
   display: grid;
-  min-height: calc(99vh - 1.2rem - 89px);
+  place-items: center;
 }
 
 .hidden {
