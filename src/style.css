@@ -50,6 +50,28 @@ input.search {
   place-items: center;
 }
 
+.weather-window {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 6px;
+}
+
+.current-weather {
+  grid-column: 1;
+  grid-row: 1 / -1;
+}
+
+.hour-forecast {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.daily-forecast {
+  grid-column: 2;
+  grid-row: 2;
+}
+
 .hidden {
   display: none;
 }
