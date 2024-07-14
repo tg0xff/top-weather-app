@@ -88,6 +88,7 @@ input.search {
 .temperature {
   grid-row: 3;
   grid-column: 2;
+  justify-content: center;
 }
 
 .fl-temperature {
