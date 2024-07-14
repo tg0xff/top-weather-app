@@ -67,7 +67,7 @@ input.search {
 
 .current-weather > div {
   display: grid;
-  place-items: center;
+  align-items: center;
 }
 
 .location {
