@@ -65,6 +65,11 @@ input.search {
   grid-template-rows: repeat(5, auto);
 }
 
+.current-weather > div {
+  display: grid;
+  place-items: center;
+}
+
 .location {
   grid-row: 1;
   grid-column: 1 / -1;
