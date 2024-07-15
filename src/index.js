@@ -34,7 +34,7 @@ function printWeatherInfo(response) {
   }
 }
 
-getWeatherData("New York").then((response) => {
-  console.log(response);
-  printWeatherInfo(response);
-});
+// getWeatherData("New York").then((response) => {
+//   console.log(response);
+//   printWeatherInfo(response);
+// });
