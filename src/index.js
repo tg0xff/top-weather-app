@@ -34,6 +34,20 @@ function printWeatherInfo(response) {
   }
 }
 
+const WeatherWindow = (() => {
+  function Constructor() {
+    this.locationElem = document.querySelector("#location");
+    this.dateTimeElem = document.querySelector("#date-time");
+    this.weatherIconElem = document.querySelector("#weather-icon");
+    this.temperatureElem = document.querySelector("#temperature");
+    this.flTemperatureElem = document.querySelector("#fl-temperature");
+    this.uvIndexElem = document.querySelector("#uv-index");
+    this.hourForecastElem = document.querySelector("#hour-forecast");
+    this.dailyForecastElem = document.querySelector("#daily-forecast");
+  }
+  return new Constructor();
+})();
+
 // getWeatherData("New York").then((response) => {
 //   console.log(response);
 //   printWeatherInfo(response);
