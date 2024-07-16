@@ -63,6 +63,29 @@ const WeatherWindow = (() => {
       this.hourForecastElem.appendChild(parentDiv);
     }
   };
+  Constructor.prototype.populateDailyForecast = (response) => {
+    this.dailyForecastElem.replaceChildren();
+    const days = response.days;
+    for (const day of days) {
+      const parentDiv = document.createElement("div");
+      const dayDiv = document.createElement("div");
+      dayDiv.textContent = day.datetime;
+      parentDiv.appendChild(dayDiv);
+      const weatherIconDiv = document.createElement("div");
+      weatherIconDiv.textContent = day.conditions;
+      parentDiv.appendChild(weatherIconDiv);
+      const maxTempDiv = document.createElement("div");
+      maxTempDiv.textContent = `${day.tempmax}℃`;
+      parentDiv.appendChild(maxTempDiv);
+      const minTempDiv = document.createElement("div");
+      minTempDiv.textContent = `${day.tempmin}℃`;
+      parentDiv.appendChild(minTempDiv);
+      const chanceRainDiv = document.createElement("div");
+      chanceRainDiv.textContent = `${day.precipprob}%`;
+      parentDiv.appendChild(chanceRainDiv);
+      this.dailyForecastElem.appendChild(parentDiv);
+    }
+  };
   Constructor.prototype.displayInfo = async () => {
     if (!this.searchBar.value) return;
     const response = await getWeatherData(this.searchBar.value);
