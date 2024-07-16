@@ -49,7 +49,7 @@ const WeatherWindow = (() => {
     this.hourForecastElem = document.querySelector("#hour-forecast");
     this.dailyForecastElem = document.querySelector("#daily-forecast");
   }
-  Constructor.prototype.populateHourForecast = (response) => {
+  Constructor.prototype.populateHourForecast = function (response) {
     this.hourForecastElem.replaceChildren();
     const hours = response.days[0].hours.filter((hour) => hour.datetimeEpoch > response.currentConditions.datetimeEpoch);
     for (const hour of hours) {
@@ -66,7 +66,7 @@ const WeatherWindow = (() => {
       this.hourForecastElem.appendChild(parentDiv);
     }
   };
-  Constructor.prototype.populateDailyForecast = (response) => {
+  Constructor.prototype.populateDailyForecast = function (response) {
     this.dailyForecastElem.replaceChildren();
     const days = response.days;
     for (const day of days) {
@@ -89,7 +89,7 @@ const WeatherWindow = (() => {
       this.dailyForecastElem.appendChild(parentDiv);
     }
   };
-  Constructor.prototype.displayInfo = async () => {
+  Constructor.prototype.displayInfo = async function () {
     if (!this.searchBar.value) return;
     const response = await getWeatherData(this.searchBar.value);
     this.locationElem.textContent = response.resolvedAddress;
