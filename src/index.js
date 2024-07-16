@@ -10,27 +10,27 @@ async function getWeatherData(location) {
 
 function printWeatherInfo(response) {
   console.log(
-    `Location: ${response.location.name}, ${response.location.country}`,
+    `Location: ${response.resolvedAddress}`,
   );
-  console.log(`Weather: ${response.current.condition.text}`);
-  console.log(`Temperature: ${response.current.temp_c}℃`);
-  console.log(`Feels like: ${response.current.feelslike_c}℃`);
-  console.log(`UV index: ${response.current.uv}`);
-  const hours = response.forecast.forecastday[0].hour;
+  console.log(`Weather: ${response.currentConditions.conditions}`);
+  console.log(`Temperature: ${response.currentConditions.temp}℃`);
+  console.log(`Feels like: ${response.currentConditions.feelslike}℃`);
+  console.log(`UV index: ${response.currentConditions.uvindex}`);
+  const hours = response.days[0].hours;
   console.log("Hours:");
   for (const hour of hours) {
-    console.log(`  Hour: ${hour.time.slice(-5)}`);
-    console.log(`    Weather: ${hour.condition.text}`);
-    console.log(`    Temperature: ${hour.temp_c}℃`);
+    console.log(`  Hour: ${hour.datetime.slice(0, 5)}`);
+    console.log(`    Weather: ${hour.conditions}`);
+    console.log(`    Temperature: ${hour.temp}℃`);
   }
-  const days = response.forecast.forecastday;
+  const days = response.days;
   console.log("Days:");
   for (const day of days) {
-    console.log(`  Day: ${day.date}`);
-    console.log(`    Weather: ${day.day.condition.text}`);
-    console.log(`    Max: ${day.day.maxtemp_c}℃`);
-    console.log(`    Min: ${day.day.mintemp_c}℃`);
-    console.log(`    Chance of rain: ${day.day.daily_chance_of_rain}%`);
+    console.log(`  Day: ${day.datetime}`);
+    console.log(`    Weather: ${day.conditions}`);
+    console.log(`    Max: ${day.tempmax}℃`);
+    console.log(`    Min: ${day.tempmin}℃`);
+    console.log(`    Chance of rain: ${day.precipprob}%`);
   }
 }
 
@@ -48,7 +48,7 @@ const WeatherWindow = (() => {
   return new Constructor();
 })();
 
-// getWeatherData("New York").then((response) => {
-//   console.log(response);
-//   printWeatherInfo(response);
-// });
+getWeatherData("New York").then((response) => {
+  console.log(response);
+  printWeatherInfo(response);
+});
