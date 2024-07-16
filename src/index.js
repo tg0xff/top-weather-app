@@ -36,6 +36,7 @@ function printWeatherInfo(response) {
 
 const WeatherWindow = (() => {
   function Constructor() {
+    this.searchBar = document.querySelector("#search");
     this.locationElem = document.querySelector("#location");
     this.dateTimeElem = document.querySelector("#date-time");
     this.weatherIconElem = document.querySelector("#weather-icon");
@@ -45,6 +46,18 @@ const WeatherWindow = (() => {
     this.hourForecastElem = document.querySelector("#hour-forecast");
     this.dailyForecastElem = document.querySelector("#daily-forecast");
   }
+  Constructor.prototype.displayInfo = async () => {
+    if (!this.searchBar.value) return;
+    const response = await getWeatherData(this.searchBar.value);
+    this.locationElem.textContent = response.resolvedAddress;
+    this.dateTimeElem.textContent = new Date(response.currentConditions.datetimeEpoch).toLocaleString();
+    this.weatherIconElem.textContent = response.currentConditions.conditions;
+    this.temperatureElem.textContent = response.currentConditions.temp;
+    this.flTemperatureElem.textContent = response.currentConditions.feelslike;
+    this.uvIndexElem.textContent = response.currentConditions.uvindex;
+    this.populateHourForecast(response);
+    this.populateDailyForecast(response);
+  };
   return new Constructor();
 })();
 
