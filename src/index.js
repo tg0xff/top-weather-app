@@ -93,7 +93,7 @@ const WeatherWindow = (() => {
     if (!this.searchBar.value) return;
     const response = await getWeatherData(this.searchBar.value);
     this.locationElem.textContent = response.resolvedAddress;
-    this.dateTimeElem.textContent = new Date(response.currentConditions.datetimeEpoch).toLocaleString();
+    this.dateTimeElem.textContent = new Date(response.currentConditions.datetimeEpoch * 1000).toLocaleString();
     this.weatherIconElem.textContent = response.currentConditions.conditions;
     this.temperatureElem.textContent = response.currentConditions.temp;
     this.flTemperatureElem.textContent = response.currentConditions.feelslike;
