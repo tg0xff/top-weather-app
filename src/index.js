@@ -72,7 +72,7 @@ const WeatherWindow = (() => {
     for (const day of days) {
       const parentDiv = document.createElement("div");
       const dayDiv = document.createElement("div");
-      dayDiv.textContent = day.datetime;
+      dayDiv.textContent = day.datetime.slice(-2);
       parentDiv.appendChild(dayDiv);
       const weatherIconDiv = document.createElement("div");
       weatherIconDiv.textContent = day.conditions;
