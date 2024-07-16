@@ -108,6 +108,7 @@ input.search {
   gap: 6px;
   overflow-x: auto;
   justify-content: center;
+  scrollbar-width: thin;
 }
 
 .hour-forecast {
