@@ -37,6 +37,9 @@ function printWeatherInfo(response) {
 const WeatherWindow = (() => {
   function Constructor() {
     this.searchBar = document.querySelector("#search");
+    this.searchBar.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") this.displayInfo.call(this);
+    });
     this.locationElem = document.querySelector("#location");
     this.dateTimeElem = document.querySelector("#date-time");
     this.weatherIconElem = document.querySelector("#weather-icon");
