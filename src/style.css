@@ -106,18 +106,18 @@ input.search {
 .daily-forecast {
   display: flex;
   gap: 6px;
+  overflow-x: auto;
+  justify-content: center;
 }
 
 .hour-forecast {
   grid-column: 2;
   grid-row: 1;
-  overflow-x: auto;
 }
 
 .daily-forecast {
   grid-column: 2;
   grid-row: 2;
-  justify-content: center;
 }
 
 .hidden {
