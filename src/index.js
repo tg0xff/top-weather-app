@@ -46,6 +46,23 @@ const WeatherWindow = (() => {
     this.hourForecastElem = document.querySelector("#hour-forecast");
     this.dailyForecastElem = document.querySelector("#daily-forecast");
   }
+  Constructor.prototype.populateHourForecast = (response) => {
+    this.hourForecastElem.replaceChildren();
+    const hours = response.days[0].hours.filter((hour) => hour.datetimeEpoch > response.currentConditions.datetimeEpoch);
+    for (const hour of hours) {
+      const parentDiv = document.createElement("div");
+      const hourDiv = document.createElement("div");
+      hourDiv.textContent = hour.datetime.slice(0, 5);
+      parentDiv.appendChild(hourDiv);
+      const weatherIconDiv = document.createElement("div");
+      weatherIconDiv.textContent = hour.conditions;
+      parentDiv.appendChild(weatherIconDiv);
+      const temperatureDiv = document.createElement("div");
+      temperatureDiv.textContent = `${hour.temp}℃`;
+      parentDiv.appendChild(temperatureDiv);
+      this.hourForecastElem.appendChild(parentDiv);
+    }
+  };
   Constructor.prototype.displayInfo = async () => {
     if (!this.searchBar.value) return;
     const response = await getWeatherData(this.searchBar.value);
