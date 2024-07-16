@@ -2,7 +2,7 @@ import "./style.css";
 
 async function getWeatherData(location) {
   const apiUrl = encodeURI(
-    `https://api.weatherapi.com/v1/forecast.json?key=17e5b927abb948d193754551240907&q=${location}&days=3&lang=en`,
+    `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/next5days?unitGroup=metric&key=YE4KH7CP73XDJX8JRQRWHALSF`,
   );
   const response = await fetch(apiUrl, { mode: "cors" });
   return response.json();
