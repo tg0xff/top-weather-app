@@ -105,8 +105,3 @@ const WeatherWindow = (() => {
   };
   return new Constructor();
 })();
-
-getWeatherData("New York").then((response) => {
-  console.log(response);
-  printWeatherInfo(response);
-});
