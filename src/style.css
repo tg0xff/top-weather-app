@@ -73,11 +73,14 @@ input.search {
 .location {
   grid-row: 1;
   grid-column: 1 / -1;
+  font-size: 1.6rem;
+  font-weight: 600;
 }
 
 .date-time {
   grid-row: 2;
   grid-column: 1 / -1;
+  font-size: 1.4rem;
 }
 
 .weather-icon {
@@ -90,16 +93,21 @@ input.search {
   grid-row: 3;
   grid-column: 2;
   justify-content: center;
+  font-size: 3.5rem;
+  font-weight: 700;
 }
 
 .fl-temperature {
   grid-row: 4;
   grid-column: 2;
+  font-size: 2.2rem;
+  font-weight: 700;
 }
 
 .uv-index {
   grid-row: 5;
   grid-column: 2;
+  font-size: 1.7rem;
 }
 
 .hour-forecast,
