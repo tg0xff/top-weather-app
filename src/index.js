@@ -9,9 +9,7 @@ async function getWeatherData(location) {
 }
 
 function printWeatherInfo(response) {
-  console.log(
-    `Location: ${response.resolvedAddress}`,
-  );
+  console.log(`Location: ${response.resolvedAddress}`);
   console.log(`Weather: ${response.currentConditions.conditions}`);
   console.log(`Temperature: ${response.currentConditions.temp}℃`);
   console.log(`Feels like: ${response.currentConditions.feelslike}℃`);
@@ -51,7 +49,9 @@ const WeatherWindow = (() => {
   }
   Constructor.prototype.populateHourForecast = function (response) {
     this.hourForecastElem.replaceChildren();
-    const hours = response.days[0].hours.filter((hour) => hour.datetimeEpoch > response.currentConditions.datetimeEpoch);
+    const hours = response.days[0].hours.filter(
+      (hour) => hour.datetimeEpoch > response.currentConditions.datetimeEpoch,
+    );
     for (const hour of hours) {
       const parentDiv = document.createElement("div");
       const hourDiv = document.createElement("div");
@@ -93,7 +93,9 @@ const WeatherWindow = (() => {
     if (!this.searchBar.value) return;
     const response = await getWeatherData(this.searchBar.value);
     this.locationElem.textContent = response.resolvedAddress;
-    this.dateTimeElem.textContent = new Date(response.currentConditions.datetimeEpoch * 1000).toLocaleString();
+    this.dateTimeElem.textContent = new Date(
+      response.currentConditions.datetimeEpoch * 1000,
+    ).toLocaleString();
     this.weatherIconElem.textContent = response.currentConditions.conditions;
     this.temperatureElem.textContent = `${response.currentConditions.temp}℃`;
     this.flTemperatureElem.textContent = `FL: ${response.currentConditions.feelslike}℃`;
