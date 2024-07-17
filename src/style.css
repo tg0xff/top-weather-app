@@ -116,6 +116,7 @@ input.search {
   display: flex;
   gap: 6px;
   overflow-x: auto;
+  align-items: center;
   justify-content: center;
   scrollbar-width: thin;
 }
