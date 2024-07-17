@@ -95,9 +95,9 @@ const WeatherWindow = (() => {
     this.locationElem.textContent = response.resolvedAddress;
     this.dateTimeElem.textContent = new Date(response.currentConditions.datetimeEpoch * 1000).toLocaleString();
     this.weatherIconElem.textContent = response.currentConditions.conditions;
-    this.temperatureElem.textContent = response.currentConditions.temp;
-    this.flTemperatureElem.textContent = response.currentConditions.feelslike;
-    this.uvIndexElem.textContent = response.currentConditions.uvindex;
+    this.temperatureElem.textContent = `${response.currentConditions.temp}℃`;
+    this.flTemperatureElem.textContent = `FL: ${response.currentConditions.feelslike}℃`;
+    this.uvIndexElem.textContent = `UV Index: ${response.currentConditions.uvindex}`;
     this.populateHourForecast(response);
     this.populateDailyForecast(response);
   };
