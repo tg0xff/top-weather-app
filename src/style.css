@@ -62,7 +62,7 @@ input.search {
   grid-row: 1 / -1;
   display: grid;
   grid-template-columns: 2fr 1fr;
-  grid-template-rows: repeat(5, auto);
+  grid-template-rows: 1fr 1fr 3fr 2fr 1fr;
 }
 
 .current-weather > div {
