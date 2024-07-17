@@ -61,8 +61,9 @@ input.search {
   grid-column: 1;
   grid-row: 1 / -1;
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-rows: 1fr 1fr 3fr 2fr 1fr;
+  grid-template-columns: 3fr 2fr;
+  grid-template-rows: auto auto 2fr 1fr 1fr;
+  gap: 17px 0;
 }
 
 .current-weather > div {
@@ -73,14 +74,14 @@ input.search {
 .location {
   grid-row: 1;
   grid-column: 1 / -1;
-  font-size: 1.6rem;
+  font-size: 2.4rem;
   font-weight: 600;
 }
 
 .date-time {
   grid-row: 2;
   grid-column: 1 / -1;
-  font-size: 1.4rem;
+  font-size: 2rem;
 }
 
 .weather-icon {
@@ -93,21 +94,21 @@ input.search {
   grid-row: 3;
   grid-column: 2;
   justify-content: center;
-  font-size: 3.5rem;
+  font-size: 3.4rem;
   font-weight: 700;
 }
 
 .fl-temperature {
   grid-row: 4;
   grid-column: 2;
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-weight: 700;
 }
 
 .uv-index {
   grid-row: 5;
   grid-column: 2;
-  font-size: 1.7rem;
+  font-size: 2rem;
 }
 
 .hour-forecast,
