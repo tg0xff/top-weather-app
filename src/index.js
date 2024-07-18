@@ -1,4 +1,5 @@
 import "./style.css";
+import getIcon from "./icons.js";
 
 async function getWeatherData(location) {
   const apiUrl = encodeURI(
@@ -96,7 +97,11 @@ const WeatherWindow = (() => {
     this.dateTimeElem.textContent = new Date(
       response.currentConditions.datetimeEpoch * 1000,
     ).toLocaleString();
-    this.weatherIconElem.textContent = response.currentConditions.conditions;
+    this.weatherIconElem.replaceChildren();
+    const weatherIcon = getIcon(response.currentConditions.conditions);
+    if (weatherIcon) {
+      this.weatherIconElem.appendChild(weatherIcon);
+    }
     this.temperatureElem.textContent = `${response.currentConditions.temp}℃`;
     this.flTemperatureElem.textContent = `FL: ${response.currentConditions.feelslike}℃`;
     this.uvIndexElem.textContent = `UV Index: ${response.currentConditions.uvindex}`;
