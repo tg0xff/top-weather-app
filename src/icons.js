@@ -17,12 +17,9 @@ class Icons {
   };
   static getIcon(iconCode) {
     const iconSvg = this.iconToSvg[iconCode];
-    if (iconSvg) {
-      const div = document.createElement("div");
-      div.innerHTML = iconSvg;
-      return div.querySelector("svg");
-    }
-    return null;
+    const div = document.createElement("div");
+    div.innerHTML = iconSvg;
+    return div.querySelector("svg");
   }
 }
 
