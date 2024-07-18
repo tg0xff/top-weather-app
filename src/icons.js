@@ -86,3 +86,5 @@ class Icons {
     return null;
   }
 }
+
+export default Icons.getIcon.bind(Icons);
