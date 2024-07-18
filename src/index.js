@@ -116,7 +116,7 @@ const WeatherWindow = (() => {
     this.locationElem.textContent = response.resolvedAddress;
     this.dateTimeElem.textContent = new Date(
       response.currentConditions.datetimeEpoch * 1000,
-    ).toLocaleString();
+    ).toLocaleString('sv-SE', { timeZone: response.timezone });
     this.weatherIconElem.replaceChildren();
     const weatherIcon = getIcon(response.currentConditions.icon);
     this.weatherIconElem.appendChild(weatherIcon);
