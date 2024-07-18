@@ -95,6 +95,8 @@ const WeatherWindow = (() => {
   Constructor.prototype.displayInfo = async function () {
     if (!this.searchBar.value) return;
     const response = await getWeatherData(this.searchBar.value);
+    console.log(response);
+    printWeatherInfo(response);
     this.locationElem.textContent = response.resolvedAddress;
     this.dateTimeElem.textContent = new Date(
       response.currentConditions.datetimeEpoch * 1000,
