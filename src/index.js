@@ -14,7 +14,7 @@ const SearchBar = (() => {
     return response.json();
   };
   Constructor.prototype.search = async function (e) {
-    if (this.searchBar.value && e.key === "Enter") {
+    if (e.key === "Enter" && this.searchBar.value) {
       const response = await this.getWeatherData();
       console.log(response);
       WeatherWindow.displayInfo(response);
