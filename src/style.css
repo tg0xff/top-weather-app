@@ -84,7 +84,7 @@ input.search {
   font-size: 2rem;
 }
 
-.weather-icon {
+.current-weather .weather-icon {
   grid-row: 3 / -1;
   grid-column: 1;
   gap: 16px;
@@ -93,7 +93,7 @@ input.search {
   font-size: 1.666666rem;
 }
 
-.weather-icon svg {
+.current-weather .weather-icon svg {
   font-size: 14rem;
 }
 

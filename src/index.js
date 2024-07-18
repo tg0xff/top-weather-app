@@ -73,21 +73,30 @@ const WeatherWindow = (() => {
     const days = response.days;
     for (const day of days) {
       const parentDiv = document.createElement("div");
+      parentDiv.className = "day";
       const dayDiv = document.createElement("div");
       dayDiv.textContent = day.datetime.slice(-2);
+      dayDiv.className = "date";
       parentDiv.appendChild(dayDiv);
       const weatherIconDiv = document.createElement("div");
+      weatherIconDiv.className = "weather-icon";
       const weatherIconSvg = getIcon(day.icon);
-      if (weatherIconSvg) weatherIconDiv.appendChild(weatherIconSvg);
+      weatherIconDiv.appendChild(weatherIconSvg);
+      const weatherText = document.createElement("div");
+      weatherText.textContent = day.conditions;
+      weatherIconDiv.appendChild(weatherText);
       parentDiv.appendChild(weatherIconDiv);
       const maxTempDiv = document.createElement("div");
+      maxTempDiv.className = "max-temp";
       maxTempDiv.textContent = `${day.tempmax}℃`;
       parentDiv.appendChild(maxTempDiv);
       const minTempDiv = document.createElement("div");
+      minTempDiv.className = "min-temp";
       minTempDiv.textContent = `${day.tempmin}℃`;
       parentDiv.appendChild(minTempDiv);
       const chanceRainDiv = document.createElement("div");
-      chanceRainDiv.textContent = `${day.precipprob}%`;
+      chanceRainDiv.className = "rain-chance";
+      chanceRainDiv.textContent = `Chance of rain: ${day.precipprob}%`;
       parentDiv.appendChild(chanceRainDiv);
       this.dailyForecastElem.appendChild(parentDiv);
     }
