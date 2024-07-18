@@ -7,7 +7,9 @@
 body {
   font-family: system-ui, sans-serif;
   margin: 0;
-  background-color: #666;
+  /* Photo by Yousef Espanioly (https://unsplash.com/@yespanioly) on Unsplash (https://unsplash.com/photos/seashore-DA_tplYgTow) */
+  background: no-repeat center/100%
+    url("./yousef-espanioly-DA_tplYgTow-unsplash-cropped-scaled.jpg");
 }
 
 div.search {
