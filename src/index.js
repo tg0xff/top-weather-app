@@ -57,7 +57,7 @@ const WeatherWindow = (() => {
       const parentDiv = document.createElement("div");
       parentDiv.className = "hour";
       const hourDiv = document.createElement("div");
-      hourDiv.className = "hour";
+      hourDiv.className = "hour-display";
       hourDiv.textContent = hour.datetime.slice(0, 5);
       parentDiv.appendChild(hourDiv);
       const weatherIconDiv = document.createElement("div");
