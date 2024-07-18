@@ -17,6 +17,7 @@ const SearchBar = (() => {
     if (e.key === "Enter" && this.searchBar.value) {
       const response = await this.getWeatherData();
       console.log(response);
+      WeatherWindow.displayWindow(true);
       WeatherWindow.displayInfo(response);
     }
   };
