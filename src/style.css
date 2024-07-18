@@ -54,7 +54,7 @@ input.search {
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-template-rows: 1fr 1fr;
-  gap: 6px;
+  gap: 33px;
 }
 
 .current-weather {
@@ -121,7 +121,7 @@ input.search {
 .hour-forecast,
 .daily-forecast {
   display: flex;
-  gap: 20px;
+  gap: 42px;
   overflow-x: auto;
   scrollbar-width: thin;
 }
