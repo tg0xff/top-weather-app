@@ -60,7 +60,7 @@ const WeatherWindow = (() => {
       parentDiv.appendChild(hourDiv);
       const weatherIconDiv = document.createElement("div");
       const weatherIconSvg = getIcon(hour.icon);
-      if (weatherIconSvg) weatherIconDiv.appendChild(weatherIconSvg);
+      weatherIconDiv.appendChild(weatherIconSvg);
       parentDiv.appendChild(weatherIconDiv);
       const temperatureDiv = document.createElement("div");
       temperatureDiv.textContent = `${hour.temp}℃`;
@@ -103,9 +103,7 @@ const WeatherWindow = (() => {
     ).toLocaleString();
     this.weatherIconElem.replaceChildren();
     const weatherIcon = getIcon(response.currentConditions.icon);
-    if (weatherIcon) {
-      this.weatherIconElem.appendChild(weatherIcon);
-    }
+    this.weatherIconElem.appendChild(weatherIcon);
     this.temperatureElem.textContent = `${response.currentConditions.temp}℃`;
     this.flTemperatureElem.textContent = `FL: ${response.currentConditions.feelslike}℃`;
     this.uvIndexElem.textContent = `UV Index: ${response.currentConditions.uvindex}`;
