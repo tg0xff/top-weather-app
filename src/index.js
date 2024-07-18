@@ -1,14 +1,6 @@
 import "./style.css";
 import getIcon from "./icons.js";
 
-async function getWeatherData(location) {
-  const apiUrl = encodeURI(
-    `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/next5days?unitGroup=metric&key=YE4KH7CP73XDJX8JRQRWHALSF`,
-  );
-  const response = await fetch(apiUrl, { mode: "cors" });
-  return response.json();
-}
-
 function printWeatherInfo(response) {
   console.log(`Location: ${response.resolvedAddress}`);
   console.log(`Weather: ${response.currentConditions.conditions}`);
@@ -40,13 +32,20 @@ const SearchBar = (() => {
       if (e.key === "Enter") this.searchInfo.call(this);
     });
   }
+  Constructor.prototype.getWeatherData = async function () {
+    const apiUrl = encodeURI(
+      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${this.searchBar.value}/next5days?unitGroup=metric&key=YE4KH7CP73XDJX8JRQRWHALSF`,
+    );
+    const response = await fetch(apiUrl, { mode: "cors" });
+    return response.json();
+  };
   Constructor.prototype.searchInfo = async function () {
     if (!this.searchBar.value) return;
-    const response = await getWeatherData(this.searchBar.value);
+    const response = await this.getWeatherData();
     console.log(response);
     printWeatherInfo(response);
     WeatherWindow.displayInfo(response);
-  }
+  };
   return new Constructor();
 })();
 
