@@ -121,7 +121,7 @@ input.search {
 .hour-forecast,
 .daily-forecast {
   display: flex;
-  gap: 6px;
+  gap: 20px;
   overflow-x: auto;
   align-items: center;
   justify-content: center;
@@ -136,6 +136,34 @@ input.search {
 .daily-forecast {
   grid-column: 2;
   grid-row: 2;
+}
+
+.hour {
+  display: grid;
+  width: 160px;
+  min-height: 100%;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+}
+
+.hour .hour-display {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.hour .weather-icon {
+  font-size: 1.66666rem;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+}
+
+.hour .weather-icon svg {
+  font-size: 5rem;
+}
+
+.hour .temperature {
+  font-size: 2rem;
 }
 
 .hidden {
