@@ -64,6 +64,9 @@ const WeatherWindow = (() => {
       weatherIconDiv.className = "weather-icon";
       const weatherIconSvg = getIcon(hour.icon);
       weatherIconDiv.appendChild(weatherIconSvg);
+      const weatherText = document.createElement("div");
+      weatherText.textContent = hour.conditions;
+      weatherIconDiv.appendChild(weatherText);
       parentDiv.appendChild(weatherIconDiv);
       const temperatureDiv = document.createElement("div");
       temperatureDiv.className = "temperature";
