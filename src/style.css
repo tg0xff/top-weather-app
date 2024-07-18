@@ -21,13 +21,21 @@ input.search {
   outline: none;
   font-family: inherit;
   font-size: 1.2rem;
-  border: none;
   border-radius: 30px;
   margin: 15px 0 60px;
   padding: 7px 17px;
-  color: #000;
-  background-color: #fff;
   width: 380px;
+  color: #fff;
+  background: linear-gradient(
+    50deg,
+    rgba(255, 255, 255, 0.1) 85%,
+    rgb(200, 200, 200, 0.4) 87% 90%,
+    rgba(255, 255, 255, 0.1) 92% 100%
+  );
+  backdrop-filter: blur(2px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  text-shadow: 1px 1px 5px #222;
 }
 
 .data {
@@ -41,7 +49,14 @@ input.search {
   width: 1600px;
   height: 680px;
   padding: 11px;
-  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 70%, rgb(200, 200, 200, 0.4) 71% 72%, rgba(255, 255, 255, 0.1) 73% 75%, rgb(200, 200, 200, 0.4) 76% 81%, rgba(255, 255, 255, 0.1) 82% 100%);
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.1) 70%,
+    rgb(200, 200, 200, 0.4) 71% 72%,
+    rgba(255, 255, 255, 0.1) 73% 75%,
+    rgb(200, 200, 200, 0.4) 76% 81%,
+    rgba(255, 255, 255, 0.1) 82% 100%
+  );
   backdrop-filter: blur(2px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
