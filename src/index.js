@@ -103,7 +103,7 @@ const WeatherWindow = (() => {
       parentDiv.appendChild(minTempDiv);
       const chanceRainDiv = document.createElement("div");
       chanceRainDiv.className = "rain-chance";
-      chanceRainDiv.textContent = `Chance of rain: ${day.precipprob}%`;
+      chanceRainDiv.textContent = `Rain: ${day.precipprob}%`;
       parentDiv.appendChild(chanceRainDiv);
       this.dailyForecastElem.appendChild(parentDiv);
     }
