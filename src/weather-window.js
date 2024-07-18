@@ -2,15 +2,28 @@ import getIcon from "./icons.js";
 
 const WeatherWindow = () => {
   function Constructor() {
-    this.locationElem = document.querySelector("#location");
-    this.dateTimeElem = document.querySelector("#date-time");
-    this.weatherIconElem = document.querySelector("#weather-icon");
-    this.temperatureElem = document.querySelector("#temperature");
-    this.flTemperatureElem = document.querySelector("#fl-temperature");
-    this.uvIndexElem = document.querySelector("#uv-index");
-    this.hourForecastElem = document.querySelector("#hour-forecast");
-    this.dailyForecastElem = document.querySelector("#daily-forecast");
+    this.noDataWindow = document.querySelector(".no-data");
+    this.weatherWindow = document.querySelector(".weather-window");
+    this.locationElem = this.weatherWindow.querySelector("#location");
+    this.dateTimeElem = this.weatherWindow.querySelector("#date-time");
+    this.weatherIconElem = this.weatherWindow.querySelector("#weather-icon");
+    this.temperatureElem = this.weatherWindow.querySelector("#temperature");
+    this.flTemperatureElem =
+      this.weatherWindow.querySelector("#fl-temperature");
+    this.uvIndexElem = this.weatherWindow.querySelector("#uv-index");
+    this.hourForecastElem = this.weatherWindow.querySelector("#hour-forecast");
+    this.dailyForecastElem =
+      this.weatherWindow.querySelector("#daily-forecast");
   }
+  Constructor.prototype.displayWindow = function (showInfo) {
+    if (showInfo) {
+      this.weatherWindow.classList.remove("hidden");
+      this.noDataWindow.classList.add("hidden");
+    } else {
+      this.noDataWindow.classList.remove("hidden");
+      this.weatherWindow.classList.add("hidden");
+    }
+  };
   Constructor.prototype.populateHourForecast = function (response) {
     this.hourForecastElem.replaceChildren();
     const currentUtcHour = new Date(
