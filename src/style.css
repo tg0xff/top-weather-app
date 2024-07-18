@@ -153,6 +153,7 @@ input.search {
   display: grid;
   gap: 9px;
   place-items: center;
+  align-content: center;
   text-align: center;
 }
 
