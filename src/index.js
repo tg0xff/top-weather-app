@@ -55,14 +55,18 @@ const WeatherWindow = (() => {
     );
     for (const hour of hours) {
       const parentDiv = document.createElement("div");
+      parentDiv.className = "hour";
       const hourDiv = document.createElement("div");
+      hourDiv.className = "hour";
       hourDiv.textContent = hour.datetime.slice(0, 5);
       parentDiv.appendChild(hourDiv);
       const weatherIconDiv = document.createElement("div");
+      weatherIconDiv.className = "weather-icon";
       const weatherIconSvg = getIcon(hour.icon);
       weatherIconDiv.appendChild(weatherIconSvg);
       parentDiv.appendChild(weatherIconDiv);
       const temperatureDiv = document.createElement("div");
+      temperatureDiv.className = "temperature";
       temperatureDiv.textContent = `${hour.temp}℃`;
       parentDiv.appendChild(temperatureDiv);
       this.hourForecastElem.appendChild(parentDiv);
