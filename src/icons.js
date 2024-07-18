@@ -79,9 +79,9 @@ class Icons {
   static getIcon(condition) {
     const iconSvg = this.conditionToIcon[condition];
     if (iconSvg) {
-      const svgElem = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-      svgElem.outerHTML = iconSvg;
-      return svgElem;
+      const div = document.createElement("div");
+      div.innerHTML = iconSvg;
+      return div.querySelector("svg");
     }
     return null;
   }
