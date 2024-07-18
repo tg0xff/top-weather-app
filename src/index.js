@@ -4,9 +4,7 @@ import getIcon from "./icons.js";
 const SearchBar = (() => {
   function Constructor() {
     this.searchBar = document.querySelector("#search");
-    this.searchBar.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") this.searchInfo.call(this);
-    });
+    this.searchBar.addEventListener("keydown", this.search.bind(this));
   }
   Constructor.prototype.getWeatherData = async function () {
     const apiUrl = encodeURI(
@@ -15,11 +13,12 @@ const SearchBar = (() => {
     const response = await fetch(apiUrl, { mode: "cors" });
     return response.json();
   };
-  Constructor.prototype.searchInfo = async function () {
-    if (!this.searchBar.value) return;
-    const response = await this.getWeatherData();
-    console.log(response);
-    WeatherWindow.displayInfo(response);
+  Constructor.prototype.search = async function (e) {
+    if (this.searchBar.value && e.key === "Enter") {
+      const response = await this.getWeatherData();
+      console.log(response);
+      WeatherWindow.displayInfo(response);
+    }
   };
   return new Constructor();
 })();
