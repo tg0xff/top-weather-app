@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Rubik";
+  src: url("./Rubik-VariableFont_wght.woff2") format("woff2-variations");
+}
+
 *,
 *::before,
 *::after {
@@ -5,7 +10,7 @@
 }
 
 body {
-  font-family: system-ui, sans-serif;
+  font-family: Rubik, system-ui, sans-serif;
   margin: 0;
   /* Photo by Riccardo Chiarini (https://unsplash.com/@riccardoch) on Unsplash (https://unsplash.com/photos/tokyo-tower-6hLxUdfmaKs) */
   background: no-repeat center/100%
