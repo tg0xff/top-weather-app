@@ -16,6 +16,18 @@ div.search {
   place-items: center;
 }
 
+input.search,
+.no-data,
+.weather-window {
+  color: #fff;
+  backdrop-filter: blur(2px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  text-shadow:
+    black 1px 1px 3px,
+    black -1px -1px 3px;
+}
+
 input.search {
   appearance: none;
   outline: none;
@@ -25,19 +37,12 @@ input.search {
   margin: 15px 0 60px;
   padding: 7px 17px;
   width: 380px;
-  color: #fff;
   background: linear-gradient(
     50deg,
     rgba(255, 255, 255, 0.1) 85%,
     rgb(200, 200, 200, 0.4) 87% 90%,
     rgba(255, 255, 255, 0.1) 92% 100%
   );
-  backdrop-filter: blur(2px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  text-shadow:
-    black 1px 1px 3px,
-    black -1px -1px 3px;
 }
 
 .data {
@@ -59,12 +64,6 @@ input.search {
     rgb(200, 200, 200, 0.4) 76% 81%,
     rgba(255, 255, 255, 0.1) 82% 100%
   );
-  backdrop-filter: blur(2px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  text-shadow:
-    black 1px 1px 3px,
-    black -1px -1px 3px;
 }
 
 .no-data {
