@@ -186,7 +186,7 @@ input.search {
 
 .day {
   display: grid;
-  grid-template-columns: 150px 50px;
+  grid-template-columns: 140px 80px;
   grid-template-rows: auto 1fr 1fr auto;
 }
 
