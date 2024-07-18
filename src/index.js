@@ -50,9 +50,16 @@ const WeatherWindow = (() => {
   }
   Constructor.prototype.populateHourForecast = function (response) {
     this.hourForecastElem.replaceChildren();
-    const hours = response.days[0].hours.filter(
-      (hour) => hour.datetimeEpoch > response.currentConditions.datetimeEpoch,
-    );
+    const currentUtcHour = new Date(
+      response.currentConditions.datetimeEpoch * 1000,
+    ).getUTCHours();
+    const hours = response.days[0].hours.filter((hour) => {
+      const utcHour = new Date(hour.datetimeEpoch * 1000).getUTCHours();
+      return (
+        utcHour === currentUtcHour ||
+        hour.datetimeEpoch > response.currentConditions.datetimeEpoch
+      );
+    });
     for (const hour of hours) {
       const parentDiv = document.createElement("div");
       parentDiv.className = "hour";
