@@ -33,12 +33,25 @@ function printWeatherInfo(response) {
   }
 }
 
-const WeatherWindow = (() => {
+const SearchBar = (() => {
   function Constructor() {
     this.searchBar = document.querySelector("#search");
     this.searchBar.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") this.displayInfo.call(this);
+      if (e.key === "Enter") this.searchInfo.call(this);
     });
+  }
+  Constructor.prototype.searchInfo = async function () {
+    if (!this.searchBar.value) return;
+    const response = await getWeatherData(this.searchBar.value);
+    console.log(response);
+    printWeatherInfo(response);
+    WeatherWindow.displayInfo(response);
+  }
+  return new Constructor();
+})();
+
+const WeatherWindow = (() => {
+  function Constructor() {
     this.locationElem = document.querySelector("#location");
     this.dateTimeElem = document.querySelector("#date-time");
     this.weatherIconElem = document.querySelector("#weather-icon");
@@ -115,11 +128,7 @@ const WeatherWindow = (() => {
       this.dailyForecastElem.appendChild(parentDiv);
     }
   };
-  Constructor.prototype.displayInfo = async function () {
-    if (!this.searchBar.value) return;
-    const response = await getWeatherData(this.searchBar.value);
-    console.log(response);
-    printWeatherInfo(response);
+  Constructor.prototype.displayInfo = function (response) {
     this.locationElem.textContent = response.resolvedAddress;
     this.dateTimeElem.textContent = new Date(
       response.currentConditions.datetimeEpoch * 1000,
