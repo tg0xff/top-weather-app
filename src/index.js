@@ -1,30 +1,6 @@
 import "./style.css";
 import getIcon from "./icons.js";
 
-function printWeatherInfo(response) {
-  console.log(`Location: ${response.resolvedAddress}`);
-  console.log(`Weather: ${response.currentConditions.conditions}`);
-  console.log(`Temperature: ${response.currentConditions.temp}℃`);
-  console.log(`Feels like: ${response.currentConditions.feelslike}℃`);
-  console.log(`UV index: ${response.currentConditions.uvindex}`);
-  const hours = response.days[0].hours;
-  console.log("Hours:");
-  for (const hour of hours) {
-    console.log(`  Hour: ${hour.datetime.slice(0, 5)}`);
-    console.log(`    Weather: ${hour.conditions}`);
-    console.log(`    Temperature: ${hour.temp}℃`);
-  }
-  const days = response.days;
-  console.log("Days:");
-  for (const day of days) {
-    console.log(`  Day: ${day.datetime}`);
-    console.log(`    Weather: ${day.conditions}`);
-    console.log(`    Max: ${day.tempmax}℃`);
-    console.log(`    Min: ${day.tempmin}℃`);
-    console.log(`    Chance of rain: ${day.precipprob}%`);
-  }
-}
-
 const SearchBar = (() => {
   function Constructor() {
     this.searchBar = document.querySelector("#search");
@@ -43,7 +19,6 @@ const SearchBar = (() => {
     if (!this.searchBar.value) return;
     const response = await this.getWeatherData();
     console.log(response);
-    printWeatherInfo(response);
     WeatherWindow.displayInfo(response);
   };
   return new Constructor();
