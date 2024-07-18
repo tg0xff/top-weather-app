@@ -104,6 +104,9 @@ const WeatherWindow = (() => {
     this.weatherIconElem.replaceChildren();
     const weatherIcon = getIcon(response.currentConditions.icon);
     this.weatherIconElem.appendChild(weatherIcon);
+    const weatherText = document.createElement("div");
+    weatherText.textContent = response.currentConditions.conditions;
+    this.weatherIconElem.appendChild(weatherText);
     this.temperatureElem.textContent = `${response.currentConditions.temp}℃`;
     this.flTemperatureElem.textContent = `FL: ${response.currentConditions.feelslike}℃`;
     this.uvIndexElem.textContent = `UV Index: ${response.currentConditions.uvindex}`;
