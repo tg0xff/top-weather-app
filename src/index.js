@@ -10,7 +10,16 @@ const SearchBar = (() => {
     const apiUrl = encodeURI(
       `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${this.searchBar.value}/next5days?unitGroup=metric&key=YE4KH7CP73XDJX8JRQRWHALSF`,
     );
-    const response = await fetch(apiUrl, { mode: "cors" });
+    let response;
+    try {
+      response = await fetch(apiUrl, { mode: "cors" });
+      if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`);
+      }
+    } catch (error) {
+      console.error(error.message);
+      WeatherWindow.displayWindow(false);
+    }
     return response.json();
   };
   Constructor.prototype.search = async function (e) {
