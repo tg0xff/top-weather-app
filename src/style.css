@@ -141,7 +141,7 @@ input.search {
 .hour-forecast,
 .daily-forecast {
   display: flex;
-  gap: 42px;
+  gap: 30px;
   overflow-x: auto;
   scrollbar-width: thin;
 }
