@@ -59,7 +59,7 @@ const WeatherWindow = (() => {
       hourDiv.textContent = hour.datetime.slice(0, 5);
       parentDiv.appendChild(hourDiv);
       const weatherIconDiv = document.createElement("div");
-      const weatherIconSvg = getIcon(hour.conditions);
+      const weatherIconSvg = getIcon(hour.icon);
       if (weatherIconSvg) weatherIconDiv.appendChild(weatherIconSvg);
       parentDiv.appendChild(weatherIconDiv);
       const temperatureDiv = document.createElement("div");
@@ -77,7 +77,7 @@ const WeatherWindow = (() => {
       dayDiv.textContent = day.datetime.slice(-2);
       parentDiv.appendChild(dayDiv);
       const weatherIconDiv = document.createElement("div");
-      const weatherIconSvg = getIcon(day.conditions);
+      const weatherIconSvg = getIcon(day.icon);
       if (weatherIconSvg) weatherIconDiv.appendChild(weatherIconSvg);
       parentDiv.appendChild(weatherIconDiv);
       const maxTempDiv = document.createElement("div");
@@ -102,7 +102,7 @@ const WeatherWindow = (() => {
       response.currentConditions.datetimeEpoch * 1000,
     ).toLocaleString();
     this.weatherIconElem.replaceChildren();
-    const weatherIcon = getIcon(response.currentConditions.conditions);
+    const weatherIcon = getIcon(response.currentConditions.icon);
     if (weatherIcon) {
       this.weatherIconElem.appendChild(weatherIcon);
     }
