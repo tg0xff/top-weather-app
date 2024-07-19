@@ -13,7 +13,7 @@ body {
   font-family: Rubik, system-ui, sans-serif;
   margin: 0;
   /* Photo by Riccardo Chiarini (https://unsplash.com/@riccardoch) on Unsplash (https://unsplash.com/photos/tokyo-tower-6hLxUdfmaKs) */
-  background: no-repeat center/100%
+  background: no-repeat center/auto
     url("./riccardo-chiarini-6hLxUdfmaKs-unsplash-cropped-scaled.jpg");
 }
 
